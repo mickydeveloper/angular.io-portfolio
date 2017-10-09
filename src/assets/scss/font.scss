@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('./src/assets/fonts/SourceSansPro-Bold.eot');
+  src: url('./src/assets/fonts/SourceSansPro-Bold.woff2') format('woff2'), url('./src/assets/fonts/SourceSansPro-Bold.woff') format('woff'), url('./src/assets/fonts/SourceSansPro-Bold.ttf') format('truetype'), url('./src/assets/fonts/SourceSansPro-Bold.svg#SourceSansPro-Bold') format('svg'), url('./src/assets/fonts/SourceSansPro-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('./src/assets/fonts/SourceSansPro-Regular.eot');
+  src: url('./src/assets/fonts/SourceSansPro-Regular.woff2') format('woff2'), url('./src/assets/fonts/SourceSansPro-Regular.woff') format('woff'), url('./src/assets/fonts/SourceSansPro-Regular.ttf') format('truetype'), url('./src/assets/fonts/SourceSansPro-Regular.svg#SourceSansPro-Regular') format('svg'), url('./src/assets/fonts/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  font-family: 'SourceSansPro';
+  font-weight: bold;
+  font-size: 16px;
+
+  p {
+    font-weight: normal;
+  }
+}
