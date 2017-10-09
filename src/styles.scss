@@ -1,6 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
+@import './assets/scss/colors';
 
 .vertical-center{
     display: flex;
     align-items: center;
+}
+
+a{
+    color: $primary;
+
+    &:hover, &:active, &:focus{
+        color: $primary;
+        text-decoration: none;
+    }
 }
