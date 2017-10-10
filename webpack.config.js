@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssUrl = require('postcss-url');
 const cssnano = require('cssnano');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 // const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 const { NoEmitOnErrorsPlugin, NamedModulesPlugin } = require('webpack');
@@ -367,6 +368,11 @@ module.exports = {
 	},
 	"plugins": [
 		new NoEmitOnErrorsPlugin(),
+		new CopyWebpackPlugin([
+            { from: '_redirects' },
+        ], {
+            copyUnmodified: true
+        }),
 		new GlobCopyWebpackPlugin({
 			"patterns": [
 				"assets",
