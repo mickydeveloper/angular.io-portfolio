@@ -1,0 +1,54 @@
+@import 'media';
+@import 'colors';
+body{
+    @include respond-to(medium-up){
+        padding-top: 2rem;
+    }
+
+    @include respond-to(medium-down){
+        padding: 2rem;
+    }
+
+    @include respond-to(extra-small){
+        padding: 1rem;
+    }
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: bold;
+}
+
+div[class^="col-"]{
+    padding: 0;
+}
+
+h1{
+    font-size: 80px;
+    line-height: 90px;
+
+    span{
+        color: $secondary;
+    }
+
+    @include respond-to(medium-down){
+        font-size: 60px;
+        line-height: 70px;
+    }
+
+    @include respond-to(extra-small){
+        font-size: 40px;
+        line-height: 45px;
+    }
+}
+
+section{
+    margin-top: 8rem;
+
+    @include respond-to(medium-down){
+        margin-top: 6rem;
+    }
+
+    @include respond-to(extra-small){
+        margin-top: 4rem;
+    }
+}

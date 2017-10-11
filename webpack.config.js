@@ -12,12 +12,13 @@ const { NoEmitOnErrorsPlugin, NamedModulesPlugin } = require('webpack');
 const { GlobCopyWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
 const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AotPlugin } = require('@ngtools/webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
 const realNodeModules = fs.realpathSync(nodeModules);
 const genDirNodeModules = path.join(process.cwd(), 'src', '$$_gendir', 'node_modules');
 const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"];
-const minimizeCss = false;
+const minimizeCss = true;
 const baseHref = ".";
 const deployUrl = "";
 const postcssPlugins = function () {
@@ -87,8 +88,8 @@ module.exports = {
 	},
 	"output": {
 		"path": path.join(process.cwd(), "dist"),
-		"filename": "[name].bundle.js",
-		"chunkFilename": "[id].chunk.js"
+		"filename": "[name].[chunkhash:20].bundle.js",
+		"chunkFilename": "[id].[chunkhash:20].chunk.js"
 	},
 	"module": {
 		"rules": [
@@ -96,7 +97,6 @@ module.exports = {
 				"test": /\.(js|ts)$/,
 				"exclude": [
 					// workaround for this issue
-					path.join(__dirname, 'node_modules', 'firebase'),
 					path.join(__dirname, 'node_modules', 'iconv-lite'),
 					path.join(__dirname, 'node_modules', '@angular/compiler')
 				],
