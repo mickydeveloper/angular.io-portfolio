@@ -3,6 +3,9 @@
 @import './assets/scss/font';
 @import './assets/scss/common';
 @import './assets/scss/ityped';
+body{
+    color: $primary;
+}
 
 .vertical-center{
     display: flex;

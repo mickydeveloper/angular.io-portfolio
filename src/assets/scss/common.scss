@@ -47,8 +47,9 @@ section{
     @include respond-to(medium-down){
         margin-top: 6rem;
     }
-
-    @include respond-to(extra-small){
-        margin-top: 4rem;
+}
+@include respond-to(small-down){
+    .mt-7{
+        margin-top: 5rem;
     }
 }

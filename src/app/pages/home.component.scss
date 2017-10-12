@@ -1,2 +1,78 @@
+@import '../../assets/scss/hugetext';
+@import '../../assets/scss/colors';
+@import '../../assets/scss/media';
 
+.about{
+    .about-image-container {
+        width: 80%;
+        height: 25rem;
+        padding: 8rem 0 0 3rem;
+        position: relative;
+    
+        .img{
+            height: 100%;
+            background: url("../../assets/img/about.jpg") no-repeat center center;
+            background-size: cover;
+        }
+        &:before{
+            content: "";
+            height: 65%;
+            width: 91%;
+            background: $color1;
+            position: absolute;
+            margin: 3rem 0 0 0;
+            left: 0;
+            z-index: -1;
+        }
+    }
 
+    a.text-link {
+        display: block;
+        text-align: right;
+        width: 72.5%;
+        margin-top: 2.5rem;
+    }
+
+    @include respond-to(medium-down){
+        .about-image-container {
+            width: 85%;
+            height: 18rem;
+            padding: 5.7rem 0 0 2rem;
+        
+            &:before{
+                margin: 2rem 0 0 0;
+            }
+        }
+
+        a.text-link {
+            display: block;
+            text-align: right;
+            width: 76.5%;
+            margin-top: 1.5rem;
+        }
+    }
+
+    @include respond-to(small-down){
+        .about-image-container {
+            width: 53%;
+            height: 13rem;
+            padding: 4rem 0 0 1rem;
+            margin-left: auto;
+        
+            &:before{
+                margin: 1.5rem 0 0 0;
+            }
+        }
+
+        a.text-link {
+            width: 94%;
+            margin-top: 1rem;
+        }
+    }
+
+    @include respond-to(extra-small){
+        .about-image-container {
+            width: 70%;
+        }
+    }
+}

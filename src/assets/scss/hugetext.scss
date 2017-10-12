@@ -1,0 +1,36 @@
+@import 'media';
+
+.big-text{
+    position: relative;
+    &:before{
+        content: "";
+        position: absolute;
+        font-size: 14rem;
+        opacity: 0.1;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        line-height: 11rem;
+
+        @include respond-to(large-down){
+            font-size: 11rem;
+            line-height: 9rem;
+        }
+
+        @include respond-to(medium-down){
+            font-size: 8rem;
+            line-height: 7rem;
+        }
+
+        @include respond-to(small-down){
+            font-size: 6rem;
+            line-height: 4rem;
+        }
+    }
+
+    &.about{
+        &:before{
+            content: "About";
+        }
+    }
+}
