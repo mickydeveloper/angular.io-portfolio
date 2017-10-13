@@ -147,6 +147,6 @@ h3.decorator {
 
 .mt-6{
   @include respond-to(small-up) {
-    margin-top: 7rem;
+    margin-top: 7rem!important;
   }
 }
