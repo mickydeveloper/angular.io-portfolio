@@ -33,4 +33,10 @@
             content: "About";
         }
     }
+
+    &.contact{
+        &:before{
+            content: "Contact";
+        }
+    }
 }

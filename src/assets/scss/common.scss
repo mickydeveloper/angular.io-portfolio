@@ -1,81 +1,96 @@
 @import 'media';
 @import 'colors';
-body{
-    @include respond-to(medium-up){
-        padding-top: 2rem;
-    }
 
-    @include respond-to(medium-down){
-        padding: 2rem;
-    }
-
-    @include respond-to(extra-small){
-        padding: 1rem;
-    }
+body {
+  @include respond-to(medium-up) {
+    padding-top: 2rem;
+  }
+  @include respond-to(medium-down) {
+    padding: 2rem;
+  }
+  @include respond-to(extra-small) {
+    padding: 1rem;
+  }
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-weight: bold;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
 }
 
-div[class^="col-"]{
-    padding: 0;
+div[class^="col-"] {
+  padding: 0;
 }
 
-h1{
-    font-size: 80px;
-    line-height: 85px;
+h1 {
+  font-size: 80px;
+  line-height: 85px;
 
-    span{
-        color: $secondary;
-    }
-
-    @include respond-to(medium-down){
-        font-size: 60px;
-        line-height: 65px;
-    }
-
-    @include respond-to(extra-small){
-        font-size: 40px;
-        line-height: 45px;
-    }
+  span {
+    color: $secondary;
+  }
+  @include respond-to(medium-down) {
+    font-size: 60px;
+    line-height: 65px;
+  }
+  @include respond-to(extra-small) {
+    font-size: 40px;
+    line-height: 45px;
+  }
 }
 
-section, footer{
-    margin-top: 8rem;
-
-    @include respond-to(medium-down){
-        margin-top: 6rem;
-    }
+h2 {
+  font-size: 40px;
+  line-height: 40px;
+  @include respond-to(medium-down) {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  @include respond-to(extra-small) {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 
-@include respond-to(small-down){
-    .mt-7{
-        margin-top: 5rem;
-    }
+section,
+footer {
+  margin-top: 8rem;
+  @include respond-to(medium-down) {
+    margin-top: 6rem;
+  }
 }
 
-.text-link{
-    span{
-        position: relative;
-        &:after{
-            content: "";
-            width: 20px;
-            height: 2px;
-            background: $secondary;
-            position: absolute;
-            right: 0;
-            bottom: -2px;
-            transition: all 0.4s ease-in-out;
-        }
-    
-        &:hover 
-        {
-            &:after{
-                content: "";
-                width: 100%;
-                transition: all 0.4s ease-in-out;
-            }     
-        }
+@include respond-to(small-down) {
+  .mt-7 {
+    margin-top: 5rem;
+  }
+}
+
+.text-link {
+  span {
+    position: relative;
+
+    &:after {
+      content: "";
+      width: 20px;
+      height: 2px;
+      background: $secondary;
+      position: absolute;
+      right: 0;
+      bottom: -2px;
+      transition: all 0.4s ease-in-out;
     }
+
+    &:hover {
+      &:after {
+        content: "";
+        width: 100%;
+        transition: all 0.4s ease-in-out;
+      }
+    }
+  }
 }
