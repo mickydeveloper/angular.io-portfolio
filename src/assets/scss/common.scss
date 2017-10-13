@@ -56,17 +56,23 @@ h2 {
   }
 }
 
+h3 {
+  line-height: 35px;
+  @include respond-to(medium-down) {
+    font-size: 23px;
+    line-height: 28px;
+  }
+  @include respond-to(extra-small) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
 section,
 footer {
   margin-top: 8rem;
   @include respond-to(medium-down) {
     margin-top: 6rem;
-  }
-}
-
-@include respond-to(small-down) {
-  .mt-7 {
-    margin-top: 5rem;
   }
 }
 
@@ -92,5 +98,55 @@ footer {
         transition: all 0.4s ease-in-out;
       }
     }
+  }
+}
+
+p {
+  font-size: 20px;
+  line-height: 32px;
+  @include respond-to(medium-down) {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+h3.decorator {
+  margin-bottom: 1.5rem;
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: $secondary;
+    bottom: -0.8rem;
+    left: 0;
+
+    @include respond-to(medium-down) {
+      width: 25px;
+      height: 2px;
+    }
+  }
+
+  &.right:after{
+    right: 0;
+    left: auto;
+  }
+}
+
+@include respond-to(small-down) {
+  .o-1{
+    order: 1;
+  }
+  
+  .o-2{
+    order: 2;
+  }
+}
+
+.mt-6{
+  @include respond-to(small-up) {
+    margin-top: 7rem;
   }
 }

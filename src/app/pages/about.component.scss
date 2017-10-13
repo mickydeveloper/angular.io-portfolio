@@ -1,0 +1,26 @@
+@import '../../assets/scss/hugetext';
+@import '../../assets/scss/media';
+@import '../../assets/scss/tile-images';
+
+.quotation{
+    margin-top: 6rem;
+
+    @include respond-to(medium-down) {
+        margin-top: 4rem;
+    } 
+}
+
+.work-img {
+    background: url("../../assets/img/work.jpg") no-repeat center center;
+    background-size:cover;
+}
+
+.intern-img {
+    background: url("../../assets/img/internship.jpg") no-repeat center center;
+    background-size:cover;
+}
+
+.school-img {
+    background: url("../../assets/img/school.jpg") no-repeat center center;
+    background-size:cover;
+}

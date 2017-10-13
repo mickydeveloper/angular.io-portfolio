@@ -2,6 +2,20 @@
 
 .big-text{
     position: relative;
+    margin-top: 6rem;
+
+    @include respond-to(medium-down){
+        margin-top: 10rem;
+
+        &.none {
+             margin-top: 0rem;
+        }
+    }
+
+    @include respond-to(small-down){
+        margin-top: 5rem;
+    }
+    
     &:before{
         content: "";
         position: absolute;
@@ -37,6 +51,28 @@
     &.contact{
         &:before{
             content: "Contact";
+        }
+    }
+
+    &.work{
+        &:before{
+            content: "Work";
+            top:-13vh;
+
+            @include respond-to(medium-down){
+                top:-7vh;
+            }
+        }
+    }
+
+    &.school{
+        &:before{
+            content: "Studies";
+            top:-13vh;
+
+            @include respond-to(medium-down){
+                top:-7vh;
+            }
         }
     }
 }
