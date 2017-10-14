@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +7,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  clicked = false;
+
+  constructor(router: Router) {
+    router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        this.clicked = false;
+      }
+    });
+  }
+
+  toggleNav() {
+    if (this.clicked === false) {
+      this.clicked = true;
+    } else {
+      this.clicked = false;
+    }
+  }
 }
