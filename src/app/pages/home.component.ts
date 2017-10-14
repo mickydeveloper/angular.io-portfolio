@@ -2,13 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { init, destroy } from 'ityped';
 import { Router } from '@angular/router';
 
+import { Project } from './project';
+import { ProjectService } from './project.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  ngOnInit() {
+  projects: Project[] = [];
+
+  constructor(private projectService: ProjectService) { }
+
+  ngOnInit(): void {
     init(`#type`, {
       // required - for now, only accepting texts
       strings: ['Innovate', 'Enjoy', 'Enrich'],
@@ -21,5 +28,8 @@ export class HomeComponent implements OnInit {
       cursorChar: '|', //default
       onFinished: function () { }
     });
+
+    this.projectService.getProjects()
+      .then(projects => this.projects = projects);
   }
 }

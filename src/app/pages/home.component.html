@@ -22,3 +22,12 @@
         </div>
     </div>
 </section>
+<section>
+    <div class="row">
+        <a *ngFor="let project of projects"  [routerLink]="['/project', project.slug]"  class="col-12">
+            <div class="module project">
+              <h4>{{project.name}}</h4>
+            </div>
+        </a>
+    </div>
+</section>

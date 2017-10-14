@@ -7,8 +7,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home.component';
 import { AboutComponent } from './pages/about.component';
 import { ContactComponent } from './pages/contact.component';
+import { ProjectDetailComponent } from './pages/project-detail.component';
 import { HeaderComponent } from './shared/header.component';
 import { FooterComponent } from './shared/footer.component';
+
+
+import { ProjectService } from './pages/project.service';
 
 @NgModule({
   declarations: [
@@ -17,13 +21,16 @@ import { FooterComponent } from './shared/footer.component';
     AboutComponent,
     ContactComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProjectDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ProjectService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
