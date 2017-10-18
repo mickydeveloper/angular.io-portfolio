@@ -2,6 +2,7 @@ export class Project {
     id: number;
     slug: string;
     name: string;
+    url: string;
     description: string;
     primaryColor: string;
     secondaryColor: string;

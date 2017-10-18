@@ -73,3 +73,9 @@
     text-align: center;
   }
 }
+
+@include respond-to(medium-up) {
+    .tile-image.last{
+        margin-top: -3rem;
+    }
+  }
