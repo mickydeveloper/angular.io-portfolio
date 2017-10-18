@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Project } from './project';
@@ -15,6 +15,8 @@ import * as AOS from 'aos/dist/aos';
 })
 export class ProjectDetailComponent implements OnInit {
     project: Project;
+    prevSlug: string;
+    nextSlug: string;
 
     constructor(
         private projectService: ProjectService,

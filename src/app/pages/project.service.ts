@@ -13,4 +13,9 @@ export class ProjectService {
     return this.getProjects()
                .then(projects => projects.find(project => project.slug === slug));
   }
+
+  getProjectById(id: number): Promise<Project> {
+    return this.getProjects()
+               .then(projects => projects.find(project => project.id === id));
+  }
 }
