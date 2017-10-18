@@ -2,12 +2,13 @@ import { Project } from './project';
 
 export const PROJECTS: Project[] = [
     {
+        id: 1,
         slug: 'comugraph',
         name: 'Comugraph',
         description: 'The Comugraph is a Web based project for Design Company. I developed the WordPress based website based on the design provided by the Company as I acknowledge their design capibilities.',
         primaryColor: '#FFE500',
         secondaryColor: '#FFF7AE',
-        imageUrl: '',
+        imageUrl: '../../assets/img/comugraph.png',
         titleOne: 'Carefully crafted experience',
         textOne: 'In cooperation with Comugraph we made sure that the experience served is the best based on the screen size and device. We made that happen by using device testing while adjusting the content over several iterations to deliver the best experiences on each screen.',
         imageUrlOne: '',
@@ -19,12 +20,13 @@ export const PROJECTS: Project[] = [
         imageUrlThree: '',
     },
     {
+        id: 2,
         slug: 'wavey',
         name: 'Wavey',
         description: '',
         primaryColor: '#F700FF',
         secondaryColor: '#FBBAFE',
-        imageUrl: '',
+        imageUrl: '../../assets/img/wavey.png',
         titleOne: '',
         textOne: '',
         imageUrlOne: '',
@@ -36,10 +38,11 @@ export const PROJECTS: Project[] = [
         imageUrlThree: '',
     },
     {
+        id: 3,
         slug: 'federiconicole',
         name: 'Federiconicole',
         description: '',
-        imageUrl: '',
+        imageUrl: '../../assets/img/federiconicole.png',
         primaryColor: '#ED7465',
         secondaryColor: '#F2C3BE',
         titleOne: '',

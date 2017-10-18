@@ -2,77 +2,171 @@
 @import '../../assets/scss/colors';
 @import '../../assets/scss/media';
 
-.about{
-    .about-image-container {
-        width: 80%;
-        height: 25rem;
-        padding: 8rem 0 0 3rem;
-        position: relative;
+.about {
+  .about-image-container {
+    width: 80%;
+    height: 25rem;
+    padding: 8rem 0 0 3rem;
+    position: relative;
+    cursor: pointer;
+
     
-        .img{
-            height: 100%;
-            background: url("../../assets/img/about.jpg") no-repeat center center;
-            background-size: cover;
-        }
-        &:before{
-            content: "";
-            height: 65%;
-            width: 91%;
-            background: $color1;
-            position: absolute;
-            margin: 3rem 0 0 0;
-            left: 0;
-            z-index: -1;
-        }
+
+    &:focus,
+    &:active {
+      border: none;
+      outline: none;
+    }
+
+    .img {
+      height: 100%;
+      background: url("../../assets/img/about.jpg") no-repeat center center;
+      background-size: cover;
+    }
+
+    &:before {
+      content: "";
+      height: 65%;
+      width: 91%;
+      background: $color1;
+      position: absolute;
+      margin: 3rem 0 0 0;
+      left: 0;
+      z-index: -1;
+    }
+  }
+
+  a.text-link {
+    display: block;
+    text-align: right;
+    width: 72.5%;
+    margin-top: 2.5rem;
+  }
+  @include respond-to(medium-down) {
+    .about-image-container {
+      width: 85%;
+      height: 18rem;
+      padding: 5.7rem 0 0 2rem;
+
+      &:before {
+        margin: 2rem 0 0 0;
+      }
     }
 
     a.text-link {
-        display: block;
-        text-align: right;
-        width: 72.5%;
-        margin-top: 2.5rem;
+      display: block;
+      text-align: right;
+      width: 76.5%;
+      margin-top: 1.5rem;
+    }
+  }
+  @include respond-to(small-down) {
+    .about-image-container {
+      width: 53%;
+      height: 13rem;
+      padding: 3.5rem 0 0 1rem;
+      margin-left: auto;
+
+      &:before {
+        margin: 2rem 0 0 0;
+      }
     }
 
-    @include respond-to(medium-down){
-        .about-image-container {
-            width: 85%;
-            height: 18rem;
-            padding: 5.7rem 0 0 2rem;
-        
-            &:before{
-                margin: 2rem 0 0 0;
-            }
-        }
-
-        a.text-link {
-            display: block;
-            text-align: right;
-            width: 76.5%;
-            margin-top: 1.5rem;
-        }
+    a.text-link {
+      width: 94%;
+      margin-top: 1rem;
     }
-
-    @include respond-to(small-down){
-        .about-image-container {
-            width: 53%;
-            height: 13rem;
-            padding: 3.5rem 0 0 1rem;
-            margin-left: auto;
-        
-            &:before{
-                margin: 2rem 0 0 0;
-            }
-        }
-
-        a.text-link {
-            width: 94%;
-            margin-top: 1rem;
-        }
+  }
+  @include respond-to(extra-small) {
+    .about-image-container {
+      width: 70%;
     }
+  }
 
-    @include respond-to(extra-small){
-        .about-image-container {
-            width: 70%;
-        }
+  &:hover .text-link span:after {
+    content: "";
+    width: 100%;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+.project {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rem;
+  height: 20rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+
+  img {
+    max-width: 350px;
+  }
+  @include respond-to(large-down) {
+    width: 62%;
+    height: 18rem;
+
+    img {
+      max-width: 300px;
     }
+  }
+  @include respond-to(medium-down) {
+    width: 70%;
+    height: 16rem;
+    margin-bottom: 8rem;
+
+    img {
+      max-width: 250px;
+    }
+  }
+  @include respond-to(small-down) {
+    width: 85%;
+    height: 12rem;
+    margin-bottom: 6rem;
+
+    img {
+      max-width: 150px;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05);
+
+    .bg {
+      box-shadow: 5px 5px 40px #efefef;
+    }
+  }
+
+  &:active,
+  &.focus {
+    outline: none;
+  }
+
+  h2 span {
+    display: block;
+    margin: 5px 0 0 3px;
+    height: 5px;
+    width: 40px;
+  }
+
+  .bg {
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    transition: all 0.4s ease-in-out;
+  }
+
+  &.left {
+    margin-left: auto;
+  }
+}
+
+.project-wrapper:last-of-type .project {
+  margin-bottom: 2rem;
 }

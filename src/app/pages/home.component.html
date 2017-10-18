@@ -1,16 +1,19 @@
 <section>
     <div class="row">
         <div class="col-12 col-md-5">
-            <h1>I create to<br>
+            <h1>I create to
+                <br>
                 <span id="type"></span>
             </h1>
         </div>
         <div class="col-12 col-md-7 pl-md-4">
             <div class="big-text about">
-                <div class="about-image-container">
+                <div class="about-image-container" routerLink="/about">
                     <div class="img"></div>
                 </div>
-                <a class="text-link" routerLink="/about"><span>Get to know me</span></a>
+                <a class="text-link" routerLink="/about">
+                    <span>Get to know me</span>
+                </a>
             </div>
         </div>
     </div>
@@ -24,10 +27,17 @@
 </section>
 <section>
     <div class="row">
-        <a *ngFor="let project of projects"  [routerLink]="['/project', project.slug]"  class="col-12">
-            <div class="module project">
-              <h4>{{project.name}}</h4>
+        <div *ngFor="let project of projects" class="col-12 project-wrapper">
+            <div class="project left" *ngIf="project.id % 2 === 0" [routerLink]="['/project', project.slug]">
+                <div class="bg" [ngStyle]="{'background': project.secondaryColor}"></div>
+                <h2>{{project.name}}<span [ngStyle]="{'background': project.primaryColor}"></span></h2>
+                <img [src]="project.imageUrl" />
             </div>
-        </a>
+            <div class="project" *ngIf="project.id % 2 === 1" [routerLink]="['/project', project.slug]">
+                <div class="bg" [ngStyle]="{'background': project.secondaryColor}"></div>
+                <img [src]="project.imageUrl" />
+                <h2>{{project.name}}<span  [ngStyle]="{'background': project.primaryColor}"></span></h2>
+            </div>
+        </div>
     </div>
 </section>

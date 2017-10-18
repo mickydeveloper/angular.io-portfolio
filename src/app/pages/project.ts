@@ -1,4 +1,5 @@
 export class Project {
+    id: number;
     slug: string;
     name: string;
     description: string;
