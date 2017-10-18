@@ -115,17 +115,15 @@ p {
 }
 
 h3.decorator {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   position: relative;
 
-  &:after {
-    content: "";
-    position: absolute;
+  span {
+    display: block;
     width: 40px;
     height: 4px;
     background: $secondary;
-    bottom: -0.8rem;
-    left: 0;
+    margin: 0.8rem 0;
 
     @include respond-to(medium-down) {
       width: 25px;
@@ -133,9 +131,8 @@ h3.decorator {
     }
   }
 
-  &.right:after{
-    right: 0;
-    left: auto;
+  &.right span{
+    margin-left: auto;
   }
 }
 

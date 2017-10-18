@@ -121,15 +121,6 @@
       max-width: 250px;
     }
   }
-  @include respond-to(small-down) {
-    width: 85%;
-    height: 12rem;
-    margin-bottom: 6rem;
-
-    img {
-      max-width: 150px;
-    }
-  }
 
   &:hover {
     transform: scale(1.05);
@@ -149,6 +140,22 @@
     margin: 5px 0 0 3px;
     height: 5px;
     width: 40px;
+  }
+
+  @include respond-to(small-down) {
+    width: 90%;
+    height: 11rem;
+    margin-bottom: 6rem;
+
+    img {
+      max-width: 150px;
+    }
+
+    h2 span {
+      height: 3px;
+      margin-left: 1px;
+      width: 30px;
+    }
   }
 
   .bg {

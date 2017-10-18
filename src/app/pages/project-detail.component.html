@@ -1,6 +1,75 @@
 <div *ngIf="project">
-        <h2>{{project.name}} details!</h2>
+  <section class="project-wrapper">
+    <div class="row project">
+      <div class="bg" [ngStyle]="{'background': project.secondaryColor}"></div>
+      <div class="col-12 col-md-6 img-left" *ngIf="project.id % 2 === 1">
+        <img [src]="project.imageUrl" class="img-fluid" />
+      </div>
+      <div class="col-12 col-md-6 text" [ngClass]="{'left': project.id % 2 === 1, 'right': project.id % 2 === 0}">
         <div>
-          <label>id: </label>{{project.slug}}</div>
-        <div>
+          <h1>{{project.name}}
+            <span [ngStyle]="{'background': project.primaryColor}"></span>
+          </h1>
+          <p>
+            {{project.description}}
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 img-right" *ngIf="project.id % 2 === 0">
+        <img [src]="project.imageUrl" class="img-fluid"/>
+      </div>
+    </div>
+  </section>
+  <section>
+      <div class="row">
+          <div class="col-12 text-center">
+              <h1>The Process</h1>
+          </div>
+      </div>
+  </section>
+  <section>
+      <div class="row">
+          <div class="col-12 col-md-6 pr-5">
+              <div class="tile-image" [ngStyle]="{'background-image': 'url(' + project.imageUrlOne + ')', 'background-size': 'contain', 'background-repeat': 'no-repeat' }"></div>
+          </div>
+          <div class="col-12 col-md-6 pl-5 mt-6">
+              <div>
+                  <h3 class="decorator">{{project.titleOne}}<span [ngStyle]="{'background': project.primaryColor}"></span></h3>
+                  <p>
+                      {{project.textOne}}
+                  </p>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section>
+      <div class="row">
+          <div class="col-12 col-md-6 mt-5 mt-md-0 pr-5 text-right o-2">
+              <div class="work">
+                  <h3 class="decorator right">{{project.titleTwo}}<span [ngStyle]="{'background': project.primaryColor}"></span></h3>
+                  <p>
+                      {{project.textTwo}}
+                  </p>
+              </div>
+          </div>
+          <div class="col-12 col-md-6 pl-5 mt-6 o-1">
+              <div class="tile-image right" [ngStyle]="{'background-image': 'url(' + project.imageUrlTwo + ')', 'background-size': 'cover', 'background-repeat': 'no-repeat' }"></div>
+          </div>
+      </div>
+  </section>
+  <section>
+      <div class="row">
+          <div class="col-12 col-md-6 pr-5">
+              <div class="tile-image" [ngStyle]="{'background-image': 'url(' + project.imageUrlThree + ')', 'background-size': 'cover', 'background-repeat': 'no-repeat' }"></div>
+          </div>
+          <div class="col-12 col-md-6 pl-5 mt-5 mt-md-0 mt-6">
+              <div class="big-text school none">
+                  <h3 class="decorator">{{project.titleThree}}<span [ngStyle]="{'background': project.primaryColor}"></span></h3>
+                  <p>
+                      {{project.textThree}}
+                  </p>
+              </div>
+          </div>
+      </div>
+  </section>
 </div>

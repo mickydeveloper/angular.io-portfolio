@@ -1,0 +1,75 @@
+@import '../../assets/scss/media';
+@import '../../assets/scss/tile-images';
+
+.project {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 70vh;
+
+  .bg {
+    position: absolute;
+    height: 100%;
+    width: 75%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  h1 span {
+    display: block;
+    height: 8px;
+    width: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    &.left {
+      padding-left: 2rem;
+    }
+
+    &.right {
+      padding-right: 2rem;
+    }
+  }
+
+  .img-left img {
+    padding-right: 2rem;
+  }
+
+  .img-right img {
+    padding-left: 2rem;
+  }
+  @include respond-to(small-down) {
+    height: auto;
+    padding: 4rem 0 2rem;
+
+    h1 span {
+      height: 4px;
+      margin: auto;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .bg {
+      width: 100%;
+    }
+
+    img {
+      padding: 2rem;
+      max-width: 350px;
+    }
+
+    .text {
+      padding: 2rem 3rem!important;
+    }
+  }
+}
+
+@include respond-to(small-down) {
+  .project-wrapper {
+    margin-top: 0;
+    text-align: center;
+  }
+}
