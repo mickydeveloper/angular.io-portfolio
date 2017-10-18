@@ -6,6 +6,8 @@ import { Location } from '@angular/common';
 import { Project } from './project';
 import { ProjectService } from './project.service';
 
+import * as AOS from 'aos/dist/aos';
+
 @Component({
     selector: 'app-project-detail',
     templateUrl: './project-detail.component.html',
@@ -24,5 +26,7 @@ export class ProjectDetailComponent implements OnInit {
         this.route.paramMap
             .switchMap((params: ParamMap) => this.projectService.getProject(params.get('slug')))
             .subscribe(project => this.project = project);
+
+        AOS.init();
     }
 }

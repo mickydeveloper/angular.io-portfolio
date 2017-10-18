@@ -3,9 +3,9 @@
 @import '../../assets/scss/tile-images';
 
 .quotation {
-  margin-top: 6rem;
+  margin-top: 8rem;
   @include respond-to(medium-down) {
-    margin-top: 4rem;
+    margin-top: 6rem;
   }
 }
 

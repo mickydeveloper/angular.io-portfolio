@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Project } from './project';
 import { ProjectService } from './project.service';
 
+import * as AOS from 'aos/dist/aos';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -28,6 +30,8 @@ export class HomeComponent implements OnInit {
       cursorChar: '|', //default
       onFinished: function () { }
     });
+
+    AOS.init();
 
     this.projectService.getProjects()
       .then(projects => this.projects = projects);

@@ -2,10 +2,10 @@
   <section class="project-wrapper">
     <div class="row project">
       <div class="bg" [ngStyle]="{'background': project.secondaryColor}"></div>
-      <div class="col-12 col-md-6 img-left" *ngIf="project.id % 2 === 1">
+      <div data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom" class="col-12 col-md-6 img-left" *ngIf="project.id % 2 === 1">
           <a [href]="project.url"><img [src]="project.imageUrl" class="img-fluid" /></a>
       </div>
-      <div class="col-12 col-md-6 text" [ngClass]="{'left': project.id % 2 === 1, 'right': project.id % 2 === 0}">
+      <div data-aos="fade-left" data-aos-duration="600" data-aos-anchor-placement="top-center" data-aos-once="true" class="col-12 col-md-6 text" [ngClass]="{'left': project.id % 2 === 1, 'right': project.id % 2 === 0}">
         <div>
           <h1>{{project.name}}
             <span [ngStyle]="{'background': project.primaryColor}"></span>
@@ -15,7 +15,7 @@
           </p>
         </div>
       </div>
-      <div class="col-12 col-md-6 img-right" *ngIf="project.id % 2 === 0">
+      <div data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom" class="col-12 col-md-6 img-right" *ngIf="project.id % 2 === 0">
         <a [href]="project.url"><img [src]="project.imageUrl" class="img-fluid"/></a>
       </div>
     </div>
@@ -32,7 +32,7 @@
           <div class="col-12 col-md-6 pr-5">
               <div class="tile-image" [ngStyle]="{'background-image': 'url(' + project.imageUrlOne + ')', 'background-size': 'contain', 'background-repeat': 'no-repeat' }"></div>
           </div>
-          <div class="col-12 col-md-6 pl-5 mt-6">
+          <div data-aos="fade-up" data-aos-duration="600" data-aos-anchor-placement="top-center" data-aos-once="true" class="col-12 col-md-6 pl-5 mt-6">
               <div>
                   <h3 class="decorator">{{project.titleOne}}<span [ngStyle]="{'background': project.primaryColor}"></span></h3>
                   <p>
@@ -45,7 +45,7 @@
   <section>
       <div class="row">
           <div class="col-12 col-md-6 mt-5 mt-md-0 pr-5 text-right o-2">
-              <div class="work">
+              <div data-aos="fade-up" data-aos-duration="600" data-aos-anchor-placement="top-center" data-aos-once="true">
                   <h3 class="decorator right">{{project.titleTwo}}<span [ngStyle]="{'background': project.primaryColor}"></span></h3>
                   <p>
                       {{project.textTwo}}
@@ -62,8 +62,8 @@
           <div class="col-12 col-md-6 pr-5">
               <div class="tile-image last" [ngStyle]="{'background-image': 'url(' + project.imageUrlThree + ')', 'background-size': 'cover', 'background-repeat': 'no-repeat' }"></div>
           </div>
-          <div class="col-12 col-md-6 pl-5 mt-5 mt-md-0 mt-6">
-              <div class="big-text school none">
+          <div  data-aos="fade-up" data-aos-duration="600" data-aos-anchor-placement="top-bottom" data-aos-once="true" class="col-12 col-md-6 pl-5 mt-5 mt-md-0 mt-6">
+              <div class="big-text">
                   <h3 class="decorator">{{project.titleThree}}<span [ngStyle]="{'background': project.primaryColor}"></span></h3>
                   <p>
                       {{project.textThree}}
