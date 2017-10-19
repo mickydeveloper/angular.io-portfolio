@@ -153,5 +153,7 @@ h3.decorator {
 }
 
 .aos-wrapper{
-  overflow: hidden;
+  @include respond-to(small-down) {
+    overflow: hidden;
+  }
 }

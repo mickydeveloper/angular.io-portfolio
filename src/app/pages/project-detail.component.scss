@@ -25,6 +25,9 @@
   }
 
   .text {
+    @include respond-to(small-down){
+      order: 2;
+    }
     &.left {
       padding-left: 2rem;
     }

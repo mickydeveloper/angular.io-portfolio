@@ -27,7 +27,7 @@
 </section>
 <section>
     <div class="row">
-        <div *ngFor="let project of projects" class="col-12 project-wrapper">
+        <div *ngFor="let project of projects" class="col-12 project-wrapper aos-wrapper">
             <div data-aos="fade-left" data-aos-duration="600" data-aos-anchor-placement="top-center" data-aos-offset="-200" data-aos-once="true" class="project left" *ngIf="project.id % 2 === 0" [routerLink]="['/project', project.slug]">
                 <div class="bg" [ngStyle]="{'background': project.secondaryColor}"></div>
                 <h2>{{project.name}}<span [ngStyle]="{'background': project.primaryColor}"></span></h2>

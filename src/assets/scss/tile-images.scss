@@ -3,6 +3,10 @@
 .tile-image{
     height: 21rem;
 
+    &.big{
+        height: 25rem;  
+    }
+
     @include respond-to(medium-down){
         height: 14rem;
     }
