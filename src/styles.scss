@@ -6,6 +6,7 @@
 @import './assets/scss/ityped';
 body{
     color: $primary;
+    overflow-x: hidden;
 }
 
 .vertical-center{
