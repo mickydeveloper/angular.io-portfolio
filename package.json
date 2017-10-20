@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test:once": "karma start karma.conf.js --single-run",
-    "build": "rimraf dist && webpack --config webpack.config.js --bail",
+    "build": "rimraf dist && webpack --config webpack.config.prod.js --bail",
     "serve": "lite-server -c=bs-config.json",
     "prestart": "npm run build",
     "start": "webpack-dev-server --inline --progress --port 8080",

@@ -2,23 +2,24 @@ const fs = require('fs');
 const path = require('path');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssUrl = require('postcss-url');
 const cssnano = require('cssnano');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 // const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
-const { NoEmitOnErrorsPlugin, EnvironmentPlugin, HashedModuleIdsPlugin } = require('webpack');
-const { GlobCopyWebpackPlugin, BaseHrefWebpackPlugin, SuppressExtractedTextChunksWebpackPlugin } = require('@angular/cli/plugins/webpack');
-const { CommonsChunkPlugin, UglifyJsPlugin } = require('webpack').optimize;
+const { NoEmitOnErrorsPlugin, NamedModulesPlugin } = require('webpack');
+const { GlobCopyWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
+const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AotPlugin } = require('@ngtools/webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
 const realNodeModules = fs.realpathSync(nodeModules);
 const genDirNodeModules = path.join(process.cwd(), 'src', '$$_gendir', 'node_modules');
 const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"];
 const minimizeCss = true;
-const baseHref = "";
+const baseHref = ".";
 const deployUrl = "";
 const postcssPlugins = function () {
 	// safe settings based on: https://github.com/ben-eb/cssnano/issues/358#issuecomment-283696193
@@ -56,11 +57,8 @@ const postcssPlugins = function () {
 	].concat(minimizeCss ? [cssnano(minimizeOptions)] : []);
 };
 
-
-
-
 module.exports = {
-	"devtool": false,
+	"devtool": "source-map",
 	"resolve": {
 		"extensions": [
 			".ts",
@@ -96,12 +94,16 @@ module.exports = {
 	"module": {
 		"rules": [
 			{
-				"enforce": "pre",
-				"test": /\.js$/,
-				"loader": "source-map-loader",
+				"test": /\.(js|ts)$/,
 				"exclude": [
-					/\/node_modules\//
-				]
+					// workaround for this issue
+					path.join(__dirname, 'node_modules', 'iconv-lite'),
+					path.join(__dirname, 'node_modules', '@angular/compiler')
+				],
+				"use": [{
+					"loader": 'source-map-loader'
+				}],
+				"enforce": 'pre'
 			},
 			{
 				"test": /\.json$/,
@@ -133,7 +135,7 @@ module.exports = {
 					{
 						"loader": "css-loader",
 						"options": {
-							"sourceMap": true,
+							"sourceMap": false,
 							"importLoaders": 1
 						}
 					},
@@ -247,124 +249,116 @@ module.exports = {
 					path.join(process.cwd(), "src/styles.scss")
 				],
 				"test": /\.css$/,
-				"loaders": ExtractTextPlugin.extract({
-					"use": [
-						{
-							"loader": "css-loader",
-							"options": {
-								"sourceMap": false,
-								"importLoaders": 1
-							}
-						},
-						{
-							"loader": "postcss-loader",
-							"options": {
-								"ident": "postcss",
-								"plugins": postcssPlugins
-							}
+				"use": [
+					"style-loader",
+					{
+						"loader": "css-loader",
+						"options": {
+							"sourceMap": false,
+							"importLoaders": 1
 						}
-					],
-					"publicPath": ""
-				})
+					},
+					{
+						"loader": "postcss-loader",
+						"options": {
+							"ident": "postcss",
+							"plugins": postcssPlugins
+						}
+					}
+				]
 			},
 			{
 				"include": [
 					path.join(process.cwd(), "src/styles.scss")
 				],
 				"test": /\.scss$|\.sass$/,
-				"loaders": ExtractTextPlugin.extract({
-					"use": [
-						{
-							"loader": "css-loader",
-							"options": {
-								"sourceMap": true,
-								"importLoaders": 1
-							}
-						},
-						{
-							"loader": "postcss-loader",
-							"options": {
-								"ident": "postcss",
-								"plugins": postcssPlugins
-							}
-						},
-						{
-							"loader": "resolve-url-loader"
-						},
-						{
-							"loader": "sass-loader",
-							"options": {
-								"sourceMap": true,
-								"precision": 8,
-								"includePaths": []
-							}
+				"use": [
+					"style-loader",
+					{
+						"loader": "css-loader",
+						"options": {
+							"sourceMap": false,
+							"importLoaders": 1
 						}
-					],
-					"publicPath": ""
-				})
+					},
+					{
+						"loader": "postcss-loader",
+						"options": {
+							"ident": "postcss",
+							"plugins": postcssPlugins
+						}
+					},
+					{
+						"loader": "resolve-url-loader"
+					},
+					{
+						"loader": "sass-loader",
+						"options": {
+							"sourceMap": true,
+							"precision": 8,
+							"includePaths": []
+						}
+					}
+				]
 			},
 			{
 				"include": [
 					path.join(process.cwd(), "src/styles.scss")
 				],
 				"test": /\.less$/,
-				"loaders": ExtractTextPlugin.extract({
-					"use": [
-						{
-							"loader": "css-loader",
-							"options": {
-								"sourceMap": false,
-								"importLoaders": 1
-							}
-						},
-						{
-							"loader": "postcss-loader",
-							"options": {
-								"ident": "postcss",
-								"plugins": postcssPlugins
-							}
-						},
-						{
-							"loader": "less-loader",
-							"options": {
-								"sourceMap": false
-							}
+				"use": [
+					"style-loader",
+					{
+						"loader": "css-loader",
+						"options": {
+							"sourceMap": false,
+							"importLoaders": 1
 						}
-					],
-					"publicPath": ""
-				})
+					},
+					{
+						"loader": "postcss-loader",
+						"options": {
+							"ident": "postcss",
+							"plugins": postcssPlugins
+						}
+					},
+					{
+						"loader": "less-loader",
+						"options": {
+							"sourceMap": false
+						}
+					}
+				]
 			},
 			{
 				"include": [
 					path.join(process.cwd(), "src/styles.scss")
 				],
 				"test": /\.styl$/,
-				"loaders": ExtractTextPlugin.extract({
-					"use": [
-						{
-							"loader": "css-loader",
-							"options": {
-								"sourceMap": false,
-								"importLoaders": 1
-							}
-						},
-						{
-							"loader": "postcss-loader",
-							"options": {
-								"ident": "postcss",
-								"plugins": postcssPlugins
-							}
-						},
-						{
-							"loader": "stylus-loader",
-							"options": {
-								"sourceMap": false,
-								"paths": []
-							}
+				"use": [
+					"style-loader",
+					{
+						"loader": "css-loader",
+						"options": {
+							"sourceMap": false,
+							"importLoaders": 1
 						}
-					],
-					"publicPath": ""
-				})
+					},
+					{
+						"loader": "postcss-loader",
+						"options": {
+							"ident": "postcss",
+							"plugins": postcssPlugins
+						}
+					},
+					{
+						"loader": "stylus-loader",
+						"options": {
+							"sourceMap": false,
+							"paths": []
+						}
+					}
+				]
 			},
 			{
 				"test": /\.ts$/,
@@ -374,6 +368,11 @@ module.exports = {
 	},
 	"plugins": [
 		new NoEmitOnErrorsPlugin(),
+		new CopyWebpackPlugin([
+            { from: '_redirects' },
+        ], {
+            copyUnmodified: true
+        }),
 		new GlobCopyWebpackPlugin({
 			"patterns": [
 				"assets",
@@ -435,36 +434,16 @@ module.exports = {
 				"main"
 			]
 		}),
-		new ExtractTextPlugin({
-			"filename": "[name].[contenthash:20].bundle.css"
-		}),
-		new SuppressExtractedTextChunksWebpackPlugin(),
-		new EnvironmentPlugin({
-			"NODE_ENV": "production"
-		}),
-		new HashedModuleIdsPlugin({
-			"hashFunction": "md5",
-			"hashDigest": "base64",
-			"hashDigestLength": 4
-		}),
+		new NamedModulesPlugin({}),
 		// new HardSourceWebpackPlugin(),
-		new UglifyJsPlugin({
-			"mangle": {
-				"screw_ie8": true
-			},
-			"compress": {
-				"screw_ie8": true,
-				"warnings": false
-			},
-			"sourceMap": false
-		}),
 		new AotPlugin({
 			"mainPath": "main.ts",
 			"hostReplacementPaths": {
 				"environments/environment.ts": "environments/environment.prod.ts"
 			},
 			"exclude": [],
-			"tsConfigPath": "src/tsconfig.app.json"
+			"tsConfigPath": "src/tsconfig.app.json",
+			"skipCodeGeneration": true
 		})
 	],
 	"node": {
