@@ -8,8 +8,7 @@
           <img [src]="project.imageUrl" class="img-fluid" />
         </a>
       </div>
-      <div data-aos="fade-left" data-aos-duration="600" data-aos-anchor-placement="top-center" data-aos-once="true" class="col-12 col-md-6 text"
-        [ngClass]="{'left': project.id % 2 === 1, 'right': project.id % 2 === 0}">
+      <div *ngIf="project.id % 2 === 1" data-aos="fade-left" data-aos-duration="600" data-aos-anchor-placement="top-center"  data-aos-offset="-400" class="col-12 col-md-6 text left-pos">
         <div>
           <h1>{{project.name}}
             <span [ngStyle]="{'background': project.primaryColor}"></span>
@@ -19,6 +18,16 @@
           </p>
         </div>
       </div>
+      <div *ngIf="project.id % 2 === 0" data-aos="fade-left" data-aos-duration="600" data-aos-anchor-placement="top-center"  data-aos-offset="-400" class="col-12 col-md-6 text right-pos">
+      <div>
+        <h1>{{project.name}}
+          <span [ngStyle]="{'background': project.primaryColor}"></span>
+        </h1>
+        <p>
+          {{project.description}}
+        </p>
+      </div>
+    </div>
       <div data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom" class="col-12 col-md-6 img-right"
         *ngIf="project.id % 2 === 0">
         <a [href]="project.url">
@@ -39,7 +48,7 @@
       <div class="col-12 col-md-6 pr-5">
         <div class="tile-image big" [ngStyle]="{'background-image': 'url(' + project.imageUrlOne + ')', 'background-size': 'contain', 'background-repeat': 'no-repeat' }"></div>
       </div>
-      <div data-aos="fade-up" data-aos-duration="600" data-aos-anchor-placement="top-center" data-aos-once="true" class="col-12 col-md-6 pl-5 mt-6">
+      <div data-aos="fade-up" data-aos-duration="600" data-aos-anchor-placement="top-center" class="col-12 col-md-6 pl-5 mt-6">
         <div>
           <h3 class="decorator">{{project.titleOne}}
             <span [ngStyle]="{'background': project.primaryColor}"></span>
@@ -54,7 +63,7 @@
   <section>
     <div class="row">
       <div class="col-12 col-md-6 mt-5 mt-md-0 pr-5 text-right o-2">
-        <div data-aos="fade-up" data-aos-duration="600" data-aos-anchor-placement="top-center" data-aos-once="true">
+        <div data-aos="fade-up" data-aos-duration="600" data-aos-anchor-placement="top-center">
           <h3 class="decorator right">{{project.titleTwo}}
             <span [ngStyle]="{'background': project.primaryColor}"></span>
           </h3>
@@ -73,7 +82,7 @@
       <div class="col-12 col-md-6 pr-5">
         <div class="tile-image last" [ngStyle]="{'background-image': 'url(' + project.imageUrlThree + ')', 'background-size': 'cover', 'background-repeat': 'no-repeat' }"></div>
       </div>
-      <div data-aos="fade-up" data-aos-duration="600" data-aos-anchor-placement="top-bottom" data-aos-once="true" class="col-12 col-md-6 pl-5 mt-5 mt-md-0 mt-6">
+      <div data-aos="fade-up" data-aos-duration="600" data-aos-anchor-placement="top-bottom" class="col-12 col-md-6 pl-5 mt-5 mt-md-0 mt-6">
         <div class="big-text">
           <h3 class="decorator">{{project.titleThree}}
             <span [ngStyle]="{'background': project.primaryColor}"></span>
@@ -85,4 +94,22 @@
       </div>
     </div>
   </section>
+  <section class="links-bottom">
+    <div class="row">
+        <div class="col-6 text-left">
+            <h3>
+                <a class="text-link" *ngIf="prevSlug !== ''" [routerLink]="['/project', prevSlug]">
+                    <span>Previous</span>
+                </a>
+            </h3>
+        </div>
+        <div class="col-6 text-right">
+          <h3>
+              <a class="text-link" *ngIf="nextSlug !== ''" [routerLink]="['/project', nextSlug]">
+                  <span>Next</span>
+              </a>
+          </h3>
+      </div>
+    </div>
+</section>
 </div>

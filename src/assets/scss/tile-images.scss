@@ -9,6 +9,10 @@
 
     @include respond-to(medium-down){
         height: 14rem;
+
+        &.big{
+            height: 14rem;  
+        }
     }
 
     @include respond-to(small-down){
@@ -20,6 +24,10 @@
 
         &.right{
             right: 0;
+        }
+
+        &.big{
+            height: 12rem;
         }
     }
 

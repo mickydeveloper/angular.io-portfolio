@@ -28,11 +28,11 @@
     @include respond-to(small-down){
       order: 2;
     }
-    &.left {
+    &.left-pos {
       padding-left: 2rem;
     }
 
-    &.right {
+    &.right-pos {
       padding-right: 2rem;
     }
   }
