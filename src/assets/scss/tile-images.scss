@@ -17,13 +17,11 @@
 
     @include respond-to(small-down){
         height: 12rem;
-        position: absolute;
         width: 50%;
-        z-index: -1;
-        opacity: 0.2;
+        margin-bottom: 6rem;
 
         &.right{
-            right: 0;
+           margin-left: auto;
         }
 
         &.big{
@@ -32,6 +30,6 @@
     }
 
     @include respond-to(extra-small){
-        width: 70%;
+        width: 80%;
     }
 }
