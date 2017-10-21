@@ -108,6 +108,9 @@
               <a class="text-link" *ngIf="nextSlug !== ''" [routerLink]="['/project', nextSlug]">
                   <span>Next</span>
               </a>
+              <a class="text-link" *ngIf="nextSlug == ''"  routerLink="/contact">
+                <span>Contact me</span>
+              </a>
           </h3>
       </div>
     </div>
