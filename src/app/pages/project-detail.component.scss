@@ -25,9 +25,10 @@
   }
 
   .text {
-    @include respond-to(small-down){
+    @include respond-to(small-down) {
       order: 2;
     }
+
     &.left-pos {
       padding-left: 2rem;
     }
@@ -43,6 +44,17 @@
 
   .img-right img {
     padding-left: 2rem;
+  }
+
+  .img-left,
+  .img-right {
+    img {
+      transition: all 0.4s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
   @include respond-to(small-down) {
     height: auto;
@@ -65,7 +77,7 @@
     }
 
     .text {
-      padding: 2rem 3rem!important;
+      padding: 2rem 3rem !important;
     }
   }
 }
@@ -76,9 +88,8 @@
     text-align: center;
   }
 }
-
 @include respond-to(medium-up) {
-    .tile-image.last{
-        margin-top: -3rem;
-    }
+  .tile-image.last {
+    margin-top: -3rem;
   }
+}

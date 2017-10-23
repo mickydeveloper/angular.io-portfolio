@@ -96,14 +96,21 @@
   </section>
   <section class="links-bottom">
     <div class="row">
-        <div class="col-6 text-left">
+        <div class="col-4 text-left">
             <h3>
                 <a class="text-link" *ngIf="prevSlug !== ''" [routerLink]="['/project', prevSlug]">
                     <span>Previous</span>
                 </a>
             </h3>
         </div>
-        <div class="col-6 text-right">
+        <div class="col-4 text-center">
+          <h3>
+              <a class="text-link" *ngIf="project.url !== ''" [href]="project.url">
+                  <span>Visit Website</span>
+              </a>
+          </h3>
+      </div>
+        <div class="col-4 text-right">
           <h3>
               <a class="text-link" *ngIf="nextSlug !== ''" [routerLink]="['/project', nextSlug]">
                   <span>Next</span>
