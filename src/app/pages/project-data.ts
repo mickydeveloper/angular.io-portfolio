@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
         imageUrlTwo: '../../assets/img/heavy.png',
         titleThree: 'Navigation consistency',
         textThree: 'The most interesting part of this project was composing all the navigation elements into consistent whole. It was challenging as the present parts of navigation were based on the device.',
-        imageUrlThree: '../../assets/img/nav.png',
+        imageUrlThree: '../../assets/img/navigation.png',
     },
     {
         id: 3,
