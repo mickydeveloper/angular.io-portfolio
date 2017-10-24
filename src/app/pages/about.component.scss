@@ -1,0 +1,143 @@
+@import '../../assets/scss/hugetext';
+@import '../../assets/scss/media';
+@import '../../assets/scss/tile-images';
+
+.quotation {
+  margin-top: 8rem;
+  @include respond-to(medium-down) {
+    margin-top: 6rem;
+  }
+}
+
+.work-img {
+  background: url("../../assets/img/work.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.intern-img {
+  background: url("../../assets/img/internship.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.school-img {
+  background: url("../../assets/img/school.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.skill {
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5rem;
+  position: relative;
+  padding: 0.5rem 0;
+  @include respond-to(medium-down) {
+    margin-top: 4rem;
+  }
+
+  h1,
+  h2 {
+    margin-bottom: 0;
+  }
+
+  h1 {
+    opacity: 0.4;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: calc(100% - 40px);
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    left: 3rem;
+    @include respond-to(small-down) {
+      width: calc(100% - 16px);
+      left: 1.5rem;
+    }
+  }
+
+  &.right:after {
+    right: 3rem;
+    left: auto;
+    @include respond-to(small-down) {
+      right: 1.5rem;
+    }
+  }
+
+  &.yellow:after {
+    background: #ffefd2;
+  }
+
+  &.red:after {
+    background: #ffd2d2;
+  }
+
+  &.blue:after {
+    background: #d2e1ff;
+  }
+
+  &.pink:after {
+    background: #fcd2ff;
+  }
+
+  &.green:after {
+    background: #d9ffd2;
+  }
+}
+
+.ml {
+  margin-left: auto;
+}
+
+.w-60 {
+  width: 38%;
+  @include respond-to(large-down) {
+    width: 46%;
+  }
+  @include respond-to(medium-down) {
+    width: 49%;
+  }
+  @include respond-to(small-down) {
+    width: 70%;
+  }
+}
+
+.w-70 {
+  width: 42%;
+  @include respond-to(large-down) {
+    width: 51%;
+  }
+  @include respond-to(medium-down) {
+    width: 53%;
+  }
+  @include respond-to(small-down) {
+    width: 75%;
+  }
+}
+
+.w-80 {
+  width: 47%;
+  @include respond-to(large-down) {
+    width: 55%;
+  }
+  @include respond-to(medium-down) {
+    width: 57%;
+  }
+  @include respond-to(small-down) {
+    width: 80%;
+  }
+}
+
+.w-90 {
+  width: 50%;
+  @include respond-to(large-down) {
+    width: 59%;
+  }
+  @include respond-to(medium-down) {
+    width: 61%;
+  }
+  @include respond-to(small-down) {
+    width: 85%;
+  }
+}

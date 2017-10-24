@@ -1,0 +1,24 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~aos/dist/aos.css';
+@import './assets/scss/colors';
+@import './assets/scss/font';
+@import './assets/scss/common';
+@import './assets/scss/ityped';
+body{
+    color: $primary;
+    overflow-x: hidden;
+}
+
+.vertical-center{
+    display: flex;
+    align-items: center;
+}
+
+a{
+    color: $primary;
+
+    &:hover, &:active, &:focus{
+        color: $primary;
+        text-decoration: none;
+    }
+}

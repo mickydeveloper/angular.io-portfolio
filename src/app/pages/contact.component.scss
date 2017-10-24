@@ -1,0 +1,44 @@
+@import '../../assets/scss/hugetext';
+@import '../../assets/scss/media';
+
+
+.contact-section{
+    padding: 9vh 0;
+
+    .linkedin{
+        justify-content: flex-end;
+        align-items: center;
+    
+        img {
+            width: 40px;
+            margin-left: 1rem;
+        }
+    }
+
+    @include respond-to(large-down){
+        padding: 3vh 0;
+    }
+
+    @include respond-to(medium-down){
+        padding: 20vh 0;
+    }
+
+    @include respond-to(small-down){
+        padding: 10vh 0;
+
+        .linkedin, .email{
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+        
+            img {
+                width: 25px;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+    
+    @include respond-to(extra-small){
+        padding: 2vh 0;
+    }
+}

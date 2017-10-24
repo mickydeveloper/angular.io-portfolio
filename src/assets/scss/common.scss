@@ -1,0 +1,159 @@
+@import 'media';
+@import 'colors';
+
+body {
+  @include respond-to(medium-up) {
+    padding-top: 2rem;
+  }
+  @include respond-to(medium-down) {
+    padding: 2rem;
+  }
+  @include respond-to(extra-small) {
+    padding: 1rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+div[class^="col-"] {
+  padding: 0;
+}
+
+h1 {
+  font-size: 80px;
+  line-height: 85px;
+
+  span {
+    color: $secondary;
+  }
+  @include respond-to(medium-down) {
+    font-size: 60px;
+    line-height: 65px;
+  }
+  @include respond-to(extra-small) {
+    font-size: 40px;
+    line-height: 45px;
+  }
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 40px;
+  @include respond-to(medium-down) {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  @include respond-to(extra-small) {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+h3 {
+  line-height: 35px;
+  @include respond-to(medium-down) {
+    font-size: 23px;
+    line-height: 28px;
+  }
+  @include respond-to(extra-small) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+section,
+footer {
+  margin-top: 8rem;
+  @include respond-to(medium-down) {
+    margin-top: 6rem;
+  }
+}
+
+section.links-bottom{
+  margin-bottom: -2rem;
+}
+
+.text-link {
+  span {
+    position: relative;
+
+    &:after {
+      content: "";
+      width: 20px;
+      height: 2px;
+      background: $secondary;
+      position: absolute;
+      right: 0;
+      bottom: -2px;
+      transition: all 0.4s ease-in-out;
+    }
+
+    &:hover {
+      &:after {
+        content: "";
+        width: 100%;
+        transition: all 0.4s ease-in-out;
+      }
+    }
+  }
+}
+
+p {
+  font-size: 20px;
+  line-height: 32px;
+  @include respond-to(medium-down) {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+h3.decorator {
+  margin-bottom: 0;
+  position: relative;
+
+  span {
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: $secondary;
+    margin: 0.8rem 0;
+
+    @include respond-to(medium-down) {
+      width: 25px;
+      height: 2px;
+    }
+  }
+
+  &.right span{
+    margin-left: auto;
+  }
+}
+
+@include respond-to(small-down) {
+  .o-1{
+    order: 1;
+  }
+  
+  .o-2{
+    order: 2;
+  }
+}
+
+.mt-6{
+  @include respond-to(small-up) {
+    margin-top: 7rem!important;
+  }
+}
+
+.aos-wrapper{
+  @include respond-to(small-down) {
+    overflow: hidden;
+  }
+}

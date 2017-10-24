@@ -1,0 +1,35 @@
+@import 'media';
+
+.tile-image{
+    height: 21rem;
+
+    &.big{
+        height: 25rem;  
+    }
+
+    @include respond-to(medium-down){
+        height: 14rem;
+
+        &.big{
+            height: 14rem;  
+        }
+    }
+
+    @include respond-to(small-down){
+        height: 12rem;
+        width: 50%;
+        margin-bottom: 6rem;
+
+        &.right{
+           margin-left: auto;
+        }
+
+        &.big{
+            height: 12rem;
+        }
+    }
+
+    @include respond-to(extra-small){
+        width: 80%;
+    }
+}

@@ -1,0 +1,43 @@
+<section>
+    <div class="row">
+        <div class="col-12 col-md-5">
+            <h1>I create to
+                <br>
+                <span id="type"></span>
+            </h1>
+        </div>
+        <div class="col-12 col-md-7 pl-md-4">
+            <div class="big-text about mt-lg-0">
+                <div class="about-image-container" routerLink="/about">
+                    <div class="img"></div>
+                </div>
+                <a class="text-link" routerLink="/about">
+                    <span>Get to know me</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Projects</h1>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div *ngFor="let project of projects" class="col-12 project-wrapper aos-wrapper">
+            <div data-aos="fade-left" data-aos-duration="600" data-aos-anchor-placement="top-center" data-aos-offset="-200" data-aos-once="true" class="project left" *ngIf="project.id % 2 === 0" [routerLink]="['/project', project.slug]">
+                <div class="bg" [ngStyle]="{'background': project.secondaryColor}"></div>
+                <h2>{{project.name}}<span [ngStyle]="{'background': project.primaryColor}"></span></h2>
+                <img [src]="project.imageUrl" />
+            </div>
+            <div data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-center" data-aos-once="true" data-aos-offset="-200"  class="project" *ngIf="project.id % 2 === 1" [routerLink]="['/project', project.slug]">
+                <div class="bg" [ngStyle]="{'background': project.secondaryColor}"></div>
+                <img [src]="project.imageUrl" />
+                <h2>{{project.name}}<span  [ngStyle]="{'background': project.primaryColor}"></span></h2>
+            </div>
+        </div>
+    </div>
+</section>
