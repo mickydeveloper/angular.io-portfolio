@@ -4,7 +4,7 @@
       <div class="bg" [ngStyle]="{'background': project.secondaryColor}"></div>
       <div data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom" class="col-12 col-md-6 img-left"
         *ngIf="project.id % 2 === 1">
-        <a [href]="project.url">
+        <a [href]="project.url" target="_blank">
           <img [src]="project.imageUrl" class="img-fluid" />
         </a>
       </div>
@@ -30,7 +30,7 @@
     </div>
       <div data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom" class="col-12 col-md-6 img-right"
         *ngIf="project.id % 2 === 0">
-        <a [href]="project.url">
+        <a [href]="project.url" target="_blank">
           <img [src]="project.imageUrl" class="img-fluid" />
         </a>
       </div>
@@ -105,7 +105,7 @@
         </div>
         <div class="col-4 text-center">
           <h3>
-              <a class="text-link" *ngIf="project.url !== ''" [href]="project.url">
+              <a class="text-link" *ngIf="project.url !== ''" [href]="project.url" target="_blank">
                   <span>Visit Website</span>
               </a>
           </h3>
